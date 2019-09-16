@@ -1,10 +1,40 @@
-'use strict';
+"use strict";
 
-const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const EmberApp = require("ember-cli/lib/broccoli/ember-app");
+
+const purgeCSS = {
+  module: require("@fullhuman/postcss-purgecss"),
+  options: {
+    content: [
+      // add extra paths here for components/controllers which include tailwind classes
+      "./app/index.html",
+      "./app/templates/**/*.hbs"
+    ],
+    defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
+  }
+};
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
     // Add options here
+    postcssOptions: {
+      compile: {
+        plugins: [
+          require("postcss-import"),
+          require("tailwindcss")("./app/tailwind/config.js"),
+          {
+            module: require("@fullhuman/postcss-purgecss"),
+            options: {
+              content: [
+                // add extra paths here for components/controllers which include tailwind classes
+                "./app/index.html",
+                "./app/templates/**/*.hbs"
+              ]
+            }
+          }
+        ]
+      }
+    }
   });
 
   // Use `app.import` to add additional libraries to the generated

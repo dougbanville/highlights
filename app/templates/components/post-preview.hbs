@@ -1,11 +1,29 @@
-<div class="px-8 py-12 max-w-md sm:max-w-xl mx-auto">
+{{#link-to "post" model.slug}}
     <img src="{{ model.wp:featuredmedia.media_details.sizes.full.source_url }}" alt=""
         class="shadow-xl  w-full object-cover object-center">
-    <h1 class="2xl font-bold text-black leading-tight mt-6">{{{ model.title }}}</h1>
-    <p class="text-grey-darker">{{{ model.description }}}</p>
+{{/link-to}}
+{{#animated-if share use=this.transition }}
+    <div class="p2">
+        <h1>Share</h1>
+    </div>
+{{/animated-if}}
+<div class="p-2">
+    <h1 class="2xl font-display font-bold text-black leading-tight mt-6 mb-2">
+        <span class="text-blue-100">{{model.acf.sub_heading}}</span>
+        / {{{ model.title }}}
+    </h1>
+    <h2 class="text-sm mb-1">As Heard on <span class="font-bold uppercase">{{ model.author.name }}</span></h2>
+    <p class="text-gray-800 font-sans">{{{ model.excerpt }}}</p>
     <div class="mt-6">
-        <a class="inline-block px-4 bg-purple text-white p-3 rounded-lg uppercase tracking-wider ">
-            More Detail
+        {{#link-to "post" model.slug}}
+            <a class="inline-block px-4 bg-blue-100 text-white p-3 rounded-lg uppercase tracking-wider cursor-pointer">
+                Read More
+            </a>
+        {{/link-to}}
+        <a class="inline-block px-4 bg-blue-100 text-white p-3 rounded-lg uppercase tracking-wider cursor-pointer"
+            {{action "toggleShare"}}>
+            Share
         </a>
+        <PlayButton @model={{ model }} />
     </div>
 </div>

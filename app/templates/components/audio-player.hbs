@@ -1,0 +1,6 @@
+{{#if audioPlayer.ready}}
+    <h1>{{ audioPlayer.isPlaying }} {{{ audioPlayer.nowPlaying.title }}} {{ audioPlayer.nowPlaying.id }}</h1>
+    <audio controls id="audio">
+        <source src="{{ audioPlayer.src }} ">
+    </audio>
+{{/if}}

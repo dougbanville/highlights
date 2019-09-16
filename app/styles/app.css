@@ -1,2 +1,33 @@
-@import 'tailwind.css';
+@import "tailwindcss/base";
 
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+.brand {
+  background-color: rgb(85, 156, 206);
+}
+.wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: stretch;
+}
+.wrapper > * {
+  margin-bottom: 1rem;
+}
+.column {
+  flex-basis: 49%;
+}
+@media only screen and (max-width: 600px) {
+  .column {
+    flex-basis: 92%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .wrapper > * {
+    margin: 0 auto;
+    margin-bottom: 1rem;
+  }
+}

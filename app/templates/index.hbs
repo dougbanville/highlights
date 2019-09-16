@@ -1,3 +1,9 @@
-{{#each model as |post| }}
-    <PostPreview @model={{post}} />
-{{/each}}
+<div class="container mt-4">
+    <div class="wrapper">
+        {{#each model as |post index| }}
+            <div class="column bg-white shadow-xl">
+                <PostPreview @model={{post}} @index={{index}} />
+            </div>
+        {{/each}}
+    </div>
+</div>
