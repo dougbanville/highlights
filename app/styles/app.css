@@ -19,6 +19,23 @@
 .column {
   flex-basis: 49%;
 }
+.post-detail {
+  flex-basis: 60%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+@media only screen and (max-width: 600px) {
+  .post-detail {
+    flex-basis: 98%;
+  }
+}
+.column40 {
+  flex-basis: 38%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 @media only screen and (max-width: 600px) {
   .column {
     flex-basis: 92%;
@@ -30,4 +47,48 @@
     margin: 0 auto;
     margin-bottom: 1rem;
   }
+}
+.half_width {
+  flex-basis: 48%;
+  flex-direction: column;
+}
+.round-button {
+  border-radius: 50%;
+}
+.player-col-1 {
+  flex-basis: 8%;
+  flex-direction: column;
+}
+.player-col-2 {
+  flex-basis: 58%;
+  flex-direction: column;
+}
+.player-col-3 {
+  flex-basis: 18%;
+  flex-direction: column;
+}
+.audio-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: stretch;
+  height: 100px;
+  align-items: center;
+}
+progress {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  height: 4px;
+}
+progress[value]::-webkit-progress-value {
+  background: #569cce;
+}
+button:active {
+  outline: none;
+  border: none;
+}
+
+button:focus {
+  outline: 0;
 }

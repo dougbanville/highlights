@@ -9,12 +9,18 @@ export default Service.extend({
 
   status: "idle",
 
+  isPlaying: false,
+
   initPlayer(model) {
     this.set("src", model.rte_mp3_audio);
     this.set("src", model.rte_mp3_audio);
     this.set("id", model.id);
     this.set("ready", true);
     this.set("nowPlaying", model);
+    this.set("firstRun", true);
+    if (this.player) {
+      this.player.load();
+    }
   },
 
   setAudioPlayer(audio) {

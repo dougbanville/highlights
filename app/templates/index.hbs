@@ -1,9 +1,9 @@
 <div class="container mt-4">
     <div class="wrapper">
-        {{#each model as |post index| }}
+        {{#animated-each model use=transition as |post index|}}
             <div class="column bg-white shadow-xl">
                 <PostPreview @model={{post}} @index={{index}} />
             </div>
-        {{/each}}
+        {{/animated-each}}
     </div>
 </div>

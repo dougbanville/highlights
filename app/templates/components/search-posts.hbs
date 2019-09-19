@@ -1,0 +1,17 @@
+{{input value=query input=(perform searchPosts) }}
+
+{{#animated-if results}}
+    <div class="absolute bg-white z-10 p-10 w-full">
+        <div class="container">
+            <h1>Found {{ results.length }} results</h1>
+            {{#each results as |post|}}
+                <p>{{{post.title.rendered }}}
+                </p>
+                {{#if post.better_featured_image.media_details.sizes.thumbnail.source_url }}
+                    <img src={{ post.better_featured_image.media_details.sizes.thumbnail.source_url }}
+                        alt={{{post.title.rendered }}}>
+                {{/if}}
+            {{/each}}
+        </div>
+    </div>
+{{/animated-if}}

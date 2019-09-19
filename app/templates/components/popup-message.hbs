@@ -1,0 +1,15 @@
+{{#animated-if show use=this.transition}}
+    <div class="absolute bottom-0 left-0 bg-gray-800 h-64">
+        <h1 class="text-white">{{beerTask.concurrency}}</h1>
+        <button {{ action "grabBeer"}}>Grab a beer</button>
+        {{#if randomBeer}}
+            {{#if fetchRandomBeer.isRunning }}
+                <h1 class="text-white">Getting beer</h1>
+                <button {{action "cancelBeer"}}>Cancel</button>
+            {{else}}
+                <h1 class="text-white">{{randomBeer.name}}</h1>
+                <img src="{{randomBeer.image_url }}" alt="" class="h-64">
+            {{/if}}
+        {{/if}}
+    </div>
+{{/animated-if}}
