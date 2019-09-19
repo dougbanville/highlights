@@ -1,9 +1,11 @@
 <div class="bg-blue-100 align-middle">
     <div class="h-16 container ">
-        {{#link-to "index"}}
+        {{#link-to "index" }}
             <img src="assets/images/Radio1_landscape.png" alt="RTÉ Radio One" class="inline-block align-middle h-10 ">
         {{/link-to}}
-        {{input value=query }}
+        {{input value=query input=(action "showSearch")}}
     </div>
-    <SearchPosts @query={{ query }} />
+    {{#if showSearch }}
+        <SearchPosts @query={{ query }} />
+    {{/if}}
 </div>

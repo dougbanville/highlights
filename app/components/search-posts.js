@@ -1,6 +1,7 @@
 import Component from "@ember/component";
 import { task, timeout } from "ember-concurrency";
 import fade from "ember-animated/transitions/fade";
+import { computed } from "@ember/object";
 
 export default Component.extend({
   transition: fade,
@@ -9,6 +10,17 @@ export default Component.extend({
     this._super(...arguments);
     this.set("results", []);
   },
+
+  didRender() {
+    console.log("rendering");
+    //this.set("results", []);
+  },
+
+  showResults: computed("results.[]", function() {
+    if (this.results.length > 0 && this.query.length > 0) {
+      return true;
+    }
+  }),
 
   didUpdateAttrs() {
     this.searchPosts.perform();
