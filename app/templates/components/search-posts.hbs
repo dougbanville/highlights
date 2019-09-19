@@ -1,8 +1,6 @@
-{{input value=query input=(perform searchPosts) }}
-
-{{#animated-if results}}
-    <div class="absolute bg-white z-10 p-10 w-full">
-        <div class="container">
+{{#animated-if results use=transition}}
+    <div class="absolute  z-10 w-full">
+        <div class="container bg-white p-10 bg-gray-100">
             <h1>Found {{ results.length }} results</h1>
             {{#each results as |post|}}
                 <p>{{{post.title.rendered }}}
