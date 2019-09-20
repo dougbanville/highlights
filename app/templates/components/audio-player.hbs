@@ -1,7 +1,9 @@
 {{#if audioPlayer.show}}
     <div class="fixed bottom-0 left-0 bg-gray-800 w-full text-white">
-        <progress max="100" value="{{ audioPlayer.percentPlayed }}"> {{ audioPlayer.percentPlayed }}%
-        </progress>
+        {{#if audioPlayer.percentPlayed }}
+            <progress value={{ audioPlayer.currentTime }} max={{ audioPlayer.duration }}>{{ audioPlayer.percentPlayed }}
+                %</progress>
+        {{/if}}
 
         <div class="container">
             <div class="audio-wrapper">

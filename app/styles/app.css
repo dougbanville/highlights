@@ -19,6 +19,18 @@
 .column {
   flex-basis: 49%;
 }
+.column60 {
+  flex-basis: 58%;
+}
+.column70 {
+  flex-basis: 68%;
+}
+.column30 {
+  flex-basis: 28%;
+}
+.column_full {
+  flex-basis: 100%;
+}
 .post-detail {
   flex-basis: 60%;
   align-items: center;

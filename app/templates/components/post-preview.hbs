@@ -2,11 +2,20 @@
     <img src="{{ model.wp:featuredmedia.media_details.sizes.full.source_url }}" alt=""
         class="shadow-xl  w-full object-cover object-center">
 {{/link-to}}
-{{#animated-if share use=this.transition }}
-    <div class="p2">
-        <h1>Share</h1>
-    </div>
-{{/animated-if}}
+<div class="mt-6 p-2">
+    {{#if model.rte_mp3_audio }}
+        <PlayButton @model={{ model }} />
+    {{/if}}
+    {{#link-to "post" model.slug}}
+        <a class="inline-block px-4 bg-blue-100 text-white p-3 rounded-lg uppercase tracking-wider cursor-pointer">
+            Read More
+        </a>
+    {{/link-to}}
+    <a class="inline-block px-4 bg-blue-100 text-white p-3 rounded-lg uppercase tracking-wider cursor-pointer"
+        {{action "toggleShare"}}>
+        Share
+    </a>
+</div>
 <div class="p-2">
     <h1 class="2xl font-display font-bold text-black leading-tight mt-6 mb-2">
         <span class="text-blue-100">{{model.acf.sub_heading}}</span>
@@ -14,16 +23,5 @@
     </h1>
     <h2 class="text-sm mb-1">As Heard on <span class="font-bold uppercase">{{ model.author.name }}</span></h2>
     <p class="text-gray-800 font-sans">{{{ model.excerpt }}}</p>
-    <div class="mt-6">
-        {{#link-to "post" model.slug}}
-            <a class="inline-block px-4 bg-blue-100 text-white p-3 rounded-lg uppercase tracking-wider cursor-pointer">
-                Read More
-            </a>
-        {{/link-to}}
-        <a class="inline-block px-4 bg-blue-100 text-white p-3 rounded-lg uppercase tracking-wider cursor-pointer"
-            {{action "toggleShare"}}>
-            Share
-        </a>
-        <PlayButton @model={{ model }} />
-    </div>
+
 </div>

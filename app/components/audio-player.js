@@ -17,6 +17,7 @@ export default Component.extend({
 
     // has the player intialized
     this.audioPlayer.onready = () => {
+      this.audioPlayer.setProperty("show", true);
       this.audioPlayer.setProperty("duration", audio.duration.toFixed(2));
     };
 
@@ -24,7 +25,8 @@ export default Component.extend({
       this.audioPlayer.setProperty("duration", audio.duration.toFixed(2));
     };
 
-    this.audioPlayer.player.onplay = player => {
+    this.audioPlayer.player.onplay = () => {
+      this.audioPlayer.setProperty("show", true);
       this.audioPlayer.setProperty("isPlaying", true);
       this.audioPlayer.setProperty("status", "initialized");
     };
@@ -32,8 +34,7 @@ export default Component.extend({
       this.audioPlayer.setProperty("isPlaying", false);
     };
     this.audioPlayer.player.ontimeupdate = () => {
-      let percentage = audio.currentTime * audio.duration;
-      percentage = percentage / 100;
+      let percentage = Math.floor((audio.currentTime / audio.duration) * 100);
       this.audioPlayer.setProperty("percentPlayed", percentage);
       this.audioPlayer.setProperty("currentTime", audio.currentTime.toFixed(2));
       this.audioPlayer.setProperty("duration", audio.duration.toFixed(2));

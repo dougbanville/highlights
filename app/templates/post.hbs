@@ -1,20 +1,11 @@
 <div class="container mt-4">
     <div class="wrapper">
-        <div class="post-detail">
-            {{#animated-value this.model as |value| }}
-                <img src="{{ value.wp:featuredmedia.media_details.sizes.full.source_url }}" alt=""
-                    class="shadow-xl  w-full object-cover object-center">
-            {{/animated-value}}
-            <PlayButton @model={{ model }} />
-            <h1 class="2xl font-display font-bold text-black leading-tight mt-6 mb-2">
-                <span class="text-blue-100">{{model.acf.sub_heading}}</span>
-                / {{{ model.title }}}
-            </h1>
-            {{{ model.content }}}
-
+        <div class="column70 bg-white shadow-xl">
+            <PostPreview @model={{model}} @index=0 />
         </div>
-        <div class="column40">
+        <div class="column30">
             Stuff
         </div>
+
     </div>
 </div>

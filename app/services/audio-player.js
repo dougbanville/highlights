@@ -1,6 +1,11 @@
 import Service from "@ember/service";
 
 export default Service.extend({
+  init() {
+    this._super(...arguments);
+    this.nowPlaying = { id: 0 };
+  },
+
   ready: false,
 
   play: false,
@@ -10,8 +15,6 @@ export default Service.extend({
   status: "idle",
 
   isPlaying: false,
-
-  nowPlaying: { id: 0 },
 
   initPlayer(model) {
     this.set("src", model.rte_mp3_audio);

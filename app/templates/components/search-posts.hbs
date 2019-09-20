@@ -3,7 +3,7 @@
         {{#if hasResults}}
             {{#animated-each results use=transition as |post index|}}
                 <div class="column bg-white shadow-xl">
-                    <PostPreview @model={{post}} @index={{index}} />
+                    <PostPreview @model={{post}} @index=index />
                 </div>
             {{/animated-each}}
         {{else}}
