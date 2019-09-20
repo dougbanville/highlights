@@ -1,9 +1,13 @@
 {{#if audioPlayer.show}}
     <div class="fixed bottom-0 left-0 bg-gray-800 w-full text-white">
-        {{#if audioPlayer.percentPlayed }}
-            <progress value={{ audioPlayer.currentTime }} max={{ audioPlayer.duration }}>{{ audioPlayer.percentPlayed }}
-                %</progress>
-        {{/if}}
+
+        <ProgressBar @currentTime={{ audioPlayer.currentTime }} @duration={{ audioPlayer.duration }}
+            @setTime={{ action "setTime" }} />
+
+        <!-- <progress value={{ audioPlayer.currentTime }} max={{ audioPlayer.duration }}
+                {{ on "click" (action 'skip')}}>{{ audioPlayer.percentPlayed }}
+                %</progress> -->
+
 
         <div class="container">
             <div class="audio-wrapper">

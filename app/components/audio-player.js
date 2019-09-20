@@ -39,6 +39,9 @@ export default Component.extend({
       this.audioPlayer.setProperty("currentTime", audio.currentTime.toFixed(2));
       this.audioPlayer.setProperty("duration", audio.duration.toFixed(2));
     };
+    this.audioPlayer.player.onended = () => {
+      alert("that's all folks!");
+    };
   },
 
   actions: {
@@ -48,6 +51,9 @@ export default Component.extend({
       } else {
         this.audioPlayer.player.play();
       }
+    },
+    setTime(time) {
+      this.audioPlayer.player.currentTime = time;
     }
   }
 });

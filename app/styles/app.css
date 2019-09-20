@@ -92,6 +92,7 @@ progress {
   position: absolute;
   top: 0;
   height: 4px;
+  cursor: pointer;
 }
 progress[value]::-webkit-progress-value {
   background: #569cce;
