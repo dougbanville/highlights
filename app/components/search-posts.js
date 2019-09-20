@@ -25,7 +25,6 @@ export default Component.extend({
 
   searchPosts: task(function*() {
     yield timeout(250);
-    //let searchUrl = `https://radio.rte.ie/radio1highlights/wp-json/wp/v2/posts?search=${this.query}&type=type=post`;
     let results = yield this.store
       .query("audio", {
         search: this.query

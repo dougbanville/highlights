@@ -6,7 +6,10 @@ export default Component.extend({
 
   didInsertElement() {
     //remove wordpress link
-    document.getElementsByClassName("more-link")[this.index].style.display = "none";
+    let readMore = document.getElementsByClassName("more-link")[this.index];
+    if (readMore) {
+      document.getElementsByClassName("more-link")[this.index].style.display = "none";
+    }
   },
 
   transition: function*(context) {

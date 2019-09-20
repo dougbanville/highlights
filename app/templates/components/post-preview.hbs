@@ -22,6 +22,10 @@
         / {{{ model.title }}}
     </h1>
     <h2 class="text-sm mb-1">As Heard on <span class="font-bold uppercase">{{ model.author.name }}</span></h2>
-    <p class="text-gray-800 font-sans">{{{ model.excerpt }}}</p>
+    {{#if full}}
+        {{{ model.content }}}
+    {{else}}
+        <p class="text-gray-800 font-sans">{{{ model.excerpt }}}</p>
+    {{/if}}
 
 </div>
