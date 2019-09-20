@@ -1,18 +1,13 @@
-<h1>{{showResults}}</h1>
-{{#animated-if showResults use=transition}}
-    <div class="absolute  z-10 w-full">
-        <div class="container bg-white p-10 bg-gray-100">
-            <h1>Found {{ results.length }} results</h1>
-            {{#each results as |post|}}
-                <p>{{{post.title.rendered }}}
-                </p>
-                {{#if post.better_featured_image.media_details.sizes.thumbnail.source_url }}
-                    {{#link-to "post" post}}
-                        <img src={{ post.better_featured_image.media_details.sizes.thumbnail.source_url }}
-                            alt={{{post.title.rendered }}}>
-                    {{/link-to}}
-                {{/if}}
-            {{/each}}
-        </div>
+<div class="container mt-4">
+    <div class="wrapper">
+        {{#if hasResults}}
+            {{#animated-each results use=transition as |post index|}}
+                <div class="column bg-white shadow-xl">
+                    <PostPreview @model={{post}} @index={{index}} />
+                </div>
+            {{/animated-each}}
+        {{else}}
+            <h1>No results for {{ query }}</h1>
+        {{/if}}
     </div>
-{{/animated-if}}
+</div>

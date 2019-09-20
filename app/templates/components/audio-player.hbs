@@ -1,30 +1,31 @@
-<div class="fixed bottom-0 left-0 bg-gray-800 w-full text-white">
-    {{#if audioPlayer.hasLoaded }}
+{{#if audioPlayer.show}}
+    <div class="fixed bottom-0 left-0 bg-gray-800 w-full text-white">
         <progress max="100" value="{{ audioPlayer.percentPlayed }}"> {{ audioPlayer.percentPlayed }}%
         </progress>
-    {{/if}}
-    <div class="container">
-        <div class="audio-wrapper">
-            <div class="player-col-1">
-                <button class="round-button h-16 w-16 bg-blue-100" {{action "toggle"}}>
-                    {{#if audioPlayer.isPlaying }}
-                        Pause
-                    {{else}}
-                        Play
-                    {{/if}}
-                </button>
 
-            </div>
-            <div class="player-col-2">
-                <h4>{{{ audioPlayer.nowPlaying.title }}}</h4>
+        <div class="container">
+            <div class="audio-wrapper">
+                <div class="player-col-1">
+                    <button class="round-button h-16 w-16 bg-blue-100" {{action "toggle"}}>
+                        {{#if audioPlayer.isPlaying }}
+                            Pause
+                        {{else}}
+                            Play
+                        {{/if}}
+                    </button>
 
-            </div>
-            <div class="player-col-3">
-                {{ audioPlayer.duration }}
+                </div>
+                <div class="player-col-2">
+                    <h4>{{{ audioPlayer.nowPlaying.title }}}</h4>
+
+                </div>
+                <div class="player-col-3">
+                    {{ audioPlayer.duration }}
+                </div>
             </div>
         </div>
     </div>
-</div>
+{{/if}}
 {{#if audioPlayer.ready}}
     <audio id="audio">
         <source src="{{ audioPlayer.src }} ">

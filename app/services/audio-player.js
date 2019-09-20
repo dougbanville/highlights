@@ -11,6 +11,8 @@ export default Service.extend({
 
   isPlaying: false,
 
+  nowPlaying: { id: 0 },
+
   initPlayer(model) {
     this.set("src", model.rte_mp3_audio);
     this.set("src", model.rte_mp3_audio);

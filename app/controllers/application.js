@@ -5,8 +5,8 @@ export default Controller.extend({
   audioPlayer: service(),
 
   actions: {
-    hideSearch() {
-      console.log("and so I run");
+    hideSearch(query) {
+      this.transitionToRoute("search", { queryParams: { query: query } });
     }
   }
 });

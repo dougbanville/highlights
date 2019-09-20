@@ -11,6 +11,8 @@ Router.map(function() {
   this.route("post", {
     path: `:slug`
   });
+  this.route('search');
+  this.route('test');
 });
 
 export default Router;

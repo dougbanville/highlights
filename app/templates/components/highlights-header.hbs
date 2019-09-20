@@ -3,9 +3,6 @@
         {{#link-to "index" }}
             <img src="assets/images/Radio1_landscape.png" alt="RTÉ Radio One" class="inline-block align-middle h-10 ">
         {{/link-to}}
-        {{input value=query input=(action "showSearch")}}
+        {{input value=query input=(action "showSearch") placeholder="Search"}}
     </div>
-    {{#if showSearch }}
-        <SearchPosts @query={{ query }} />
-    {{/if}}
 </div>

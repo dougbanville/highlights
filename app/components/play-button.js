@@ -18,6 +18,7 @@ export default Component.extend({
   ],
 
   click() {
+    this.audioPlayer.setProperty("show", true);
     this.audioPlayer.setSource(this.model);
   }
 });

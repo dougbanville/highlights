@@ -5,7 +5,9 @@ export default Component.extend({
 
   actions: {
     showSearch() {
-      this.hideSearch();
+      //this.hideSearch();
+      this.hideSearch(this.query);
+      //this.transitionToRoute("search");
     }
   }
 });

@@ -5,6 +5,7 @@
                 <img src="{{ value.wp:featuredmedia.media_details.sizes.full.source_url }}" alt=""
                     class="shadow-xl  w-full object-cover object-center">
             {{/animated-value}}
+            <PlayButton @model={{ model }} />
             <h1 class="2xl font-display font-bold text-black leading-tight mt-6 mb-2">
                 <span class="text-blue-100">{{model.acf.sub_heading}}</span>
                 / {{{ model.title }}}
