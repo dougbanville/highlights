@@ -1,8 +1,13 @@
 import Component from "@ember/component";
 import { inject as service } from "@ember/service";
+import { fade } from "ember-animated/transitions/fade";
 
 export default Component.extend({
   audioPlayer: service(),
+
+  transition: fade,
+
+  transitionDuration: 1500,
 
   classNames: ["static", "bg-gray-600"],
 
