@@ -1,6 +1,5 @@
 {{#animated-if audioPlayer.show use=transition duration=transitionDuration}}
     <div class="fixed bottom-0 left-0 bg-gray-800 w-full text-white">
-
         <ProgressBar @currentTime={{ audioPlayer.currentTime }} @duration={{ audioPlayer.duration }}
             @setTime={{ action "setTime" }} />
 

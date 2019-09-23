@@ -26,6 +26,11 @@ export default Component.extend({
       newTime = newTime * this.duration;
       //send the time back to parent component
       this.setTime(newTime);
+    },
+    setPosition(event) {
+      //alert("ok ok");
+      console.log(event.srcElement.value); //srcElement.value
+      this.setTime(event.srcElement.value);
     }
   }
 });
