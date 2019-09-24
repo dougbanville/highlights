@@ -1,5 +1,6 @@
 import Component from "@ember/component";
 import { computed } from "@ember/object";
+import RangeTouch from "rangetouch";
 
 export default Component.extend({
   duration: 0,
@@ -13,6 +14,11 @@ export default Component.extend({
     } else {
       this.set("max", 100);
     }
+  },
+
+  didInsertElement() {
+    const range = new RangeTouch('input[type="range"]', {});
+    console.log(range);
   },
 
   didRender() {
@@ -30,7 +36,11 @@ export default Component.extend({
     setPosition(event) {
       //alert("ok ok");
       console.log(event.srcElement.value); //srcElement.value
+
       this.setTime(event.srcElement.value);
+    },
+    testAction() {
+      alert("oi");
     }
   }
 });

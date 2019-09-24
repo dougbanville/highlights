@@ -1,6 +1,6 @@
-<div class="progress_container" style="display:flex; align-items:center;">
-    <input type="range" value={{ currentTime }} max={{ max}} step="0.1"
-        style="width:100%; position: absolute; z-index:10; color:transparent;" {{on "input" (action "setPosition")}}>
+<div class="progress_container">
+    <input type="range" value={{ currentTime }} max={{ max}} step="0.1" {{on "input" (action "setPosition")}}
+        {{on "click" (action "setPosition")}} {{ on "touchend" (action "setPosition")}}>
     <progress style="position: absolute;" value={{ currentTime }} max={{ max}}
         {{ on "click" (action 'skip')}}>{{ value }}</progress>
 </div>
