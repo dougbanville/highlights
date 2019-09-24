@@ -25,7 +25,8 @@
                         @setTime={{ action "setTime" }} />
                 </div>
                 <div class="player-col-3">
-                    {{ audioPlayer.currentTime }} / {{ audioPlayer.duration }}
+                    <FormatDuration @duration={{  audioPlayer.currentTime  }} @tagName="span" /> /
+                    <FormatDuration @duration={{  audioPlayer.duration }} @tagName="span" />
                 </div>
             </div>
         </div>

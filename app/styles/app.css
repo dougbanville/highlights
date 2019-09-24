@@ -53,6 +53,9 @@
   justify-content: center;
   flex-direction: column;
 }
+.main-page {
+  flex-basis: 68%;
+}
 @media only screen and (max-width: 600px) {
   .column {
     flex-basis: 92%;
@@ -63,6 +66,9 @@
   .wrapper > * {
     margin: 0 auto;
     margin-bottom: 1rem;
+  }
+  .main-page {
+    flex-basis: 95%;
   }
 }
 .half_width {
@@ -90,6 +96,7 @@
   text-align: center;
   align-items: baseline;
   display: flex;
+  overflow: hidden;
 }
 .audio-wrapper {
   display: flex;
