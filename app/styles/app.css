@@ -3,6 +3,9 @@
 @import "tailwindcss/components";
 
 @import "tailwindcss/utilities";
+
+@import "./audio-progress.css";
+
 @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Montserrat|Open+Sans&display=swap");
 
@@ -76,10 +79,17 @@
 .player-col-2 {
   flex-basis: 58%;
   flex-direction: column;
+  height: inherit;
 }
 .player-col-3 {
   flex-basis: 18%;
   flex-direction: column;
+}
+.player-nowplaying {
+  height: 36.6px;
+  text-align: center;
+  align-items: baseline;
+  display: flex;
 }
 .audio-wrapper {
   display: flex;
@@ -87,6 +97,7 @@
   justify-content: space-between;
   align-content: stretch;
   height: 100px;
+  margin-top: 10px;
   align-items: center;
 }
 
@@ -97,69 +108,4 @@ button:active {
 
 button:focus {
   outline: 0;
-}
-.progress_container {
-  display: flex;
-  align-items: center;
-  height: 40px;
-  pointer-events: all;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-}
-.progress_container progress {
-  width: 100%;
-  height: 4px;
-  cursor: pointer;
-}
-.progress_container progress[value]::-webkit-progress-value {
-  background: #569cce;
-  cursor: pointer;
-}
-.progress_container input[type="range"] {
-  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
-  width: 100%; /* Specific width is required for Firefox. */
-  background: transparent; /* Otherwise white in Chrome */
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  height: 40px;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  display: block;
-  position: absolute;
-  z-index: 1000;
-  user-select: none;
-  touch-action: manipulation;
-}
-
-.progress_container input[type="range"]:focus {
-  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
-}
-.progress_container input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  border-radius: 50%;
-  height: 20px;
-  width: 20px;
-  background: rgb(85, 156, 206);
-  -webkit-tap-highlight-color: transparent;
-  cursor: pointer;
-  margin-top: 0px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
-}
-
-/* All the same stuff for Firefox */
-.progress_container input[type="range"]::-moz-range-thumb {
-  border-radius: 50%;
-  height: 20px;
-  width: 20px;
-  background: rgb(85, 156, 206);
-  cursor: pointer;
-}
-
-/* All the same stuff for IE */
-.progress_container input[type="range"]::-ms-thumb {
-  border-radius: 50%;
-  height: 20px;
-  width: 20px;
-  background: rgb(85, 156, 206);
-  cursor: pointer;
 }

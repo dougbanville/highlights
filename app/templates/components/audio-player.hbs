@@ -1,7 +1,6 @@
 {{#animated-if audioPlayer.show use=transition duration=transitionDuration}}
     <div class="fixed bottom-0 left-0 bg-gray-800 w-full text-white">
-        <ProgressBar @currentTime={{ audioPlayer.currentTime }} @duration={{ audioPlayer.duration }}
-            @setTime={{ action "setTime" }} />
+
 
         <!-- <progress value={{ audioPlayer.currentTime }} max={{ audioPlayer.duration }}
                 {{ on "click" (action 'skip')}}>{{ audioPlayer.percentPlayed }}
@@ -21,8 +20,9 @@
 
                 </div>
                 <div class="player-col-2">
-                    <h4>{{{ audioPlayer.nowPlaying.title }}}</h4>
-
+                    <h4 class="player-nowplaying text-sm">{{{ audioPlayer.nowPlaying.title }}}</h4>
+                    <ProgressBar @currentTime={{ audioPlayer.currentTime }} @duration={{ audioPlayer.duration }}
+                        @setTime={{ action "setTime" }} />
                 </div>
                 <div class="player-col-3">
                     {{ audioPlayer.currentTime }} / {{ audioPlayer.duration }}
